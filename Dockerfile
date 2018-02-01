@@ -9,4 +9,6 @@ RUN apt-get -y update && \
 # Expose port 22 for local JARVICE emulation in docker
 EXPOSE 22
 
-
+# AppDef
+COPY NAE/AppDef.json /etc/NAE/AppDef.json
+RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate

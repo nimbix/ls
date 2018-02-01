@@ -1,0 +1,78 @@
+{
+    "name": "ls",
+    "description": "ls application",
+    "author": "nimbixdemo",
+    "licensed": true,
+    "classifications": [
+        "Uncategorized"
+    ],
+    "machines": [
+        "*"
+    ],
+    "vault-types": [
+        "FILE",
+        "BLOCK",
+        "BLOCK_ARRAY",
+        "OBJECT"
+    ],
+    "commands": {
+        "Batch": {
+            "path": "/bin/bash",
+            "interactive": false,
+            "name": "Batch",
+            "description": "Run a batch command using /bin/bash.  The output may be monitored directly in your web browser.",
+            "parameters": {
+                "-l": {
+                    "name": "-l",
+                    "description": "-l",
+                    "type": "CONST",
+                    "value": "-l",
+                    "positional": true,
+                    "required": true
+                },
+                "-c": {
+                    "name": "-c",
+                    "description": "-c",
+                    "type": "CONST",
+                    "value": "-c",
+                    "positional": true,
+                    "required": true
+                },
+                "command": {
+                    "name": "Command",
+                    "description": "Command to run",
+                    "type": "STR",
+                    "positional": true,
+                    "required": true
+                }
+            }
+        },
+        "Server": {
+            "path": "/sbin/init",
+            "interactive": true,
+            "name": "Server",
+            "description": "Launch a session with all boot services, including SSH (if installed).  Connection address and credentials will appear in your web browser once available.",
+            "parameters": {}
+        },
+        "GUI": {
+            "path": "/usr/local/bin/nimbix_desktop",
+            "interactive": true,
+            "name": "GUI",
+            "description": "Run a GUI command, and connect interactively directly from your web browser (requires Nimbix Desktop in image).",
+            "parameters": {
+                "command": {
+                    "name": "Command",
+                    "description": "Command to run",
+                    "type": "STR",
+                    "positional": true,
+                    "required": true
+                }
+            }
+        }
+    },
+    "image": {
+        "type": "image/png",
+        "data": "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"
+    },
+    "id": "nimbixdemo-ls"
+}
